@@ -1,0 +1,24 @@
+# ============================================================
+# PROGRAM 3
+# MIN-MAX AND Z-SCORE NORMALIZATION
+# ============================================================
+
+data <- c(200,300,400,600,1000)
+
+# Min-Max Normalization
+minimum <- min(data)
+maximum <- max(data)
+
+min_max <- (data - minimum) / (maximum - minimum)
+
+print("Min-Max Normalization:")
+print(min_max)
+
+# Z-Score Normalization
+mean_value <- mean(data)
+standard_deviation <- sd(data)
+
+z_score <- (data - mean_value) / standard_deviation
+
+print("Z-Score Normalization:")
+print(z_score)
