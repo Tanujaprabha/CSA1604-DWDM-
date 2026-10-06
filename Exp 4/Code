@@ -1,0 +1,102 @@
+# ============================================================
+# PROGRAM 4
+# SMOOTHING BY BIN MEAN, MEDIAN AND BOUNDARIES
+# ============================================================
+
+data <- c(11,13,13,15,15,16,19,20,
+          20,20,21,21,22,23,24,30,
+          40,45,45,45,71,72,73,75)
+
+# Divide data into 3 bins
+bin1 <- data[1:8]
+bin2 <- data[9:16]
+bin3 <- data[17:24]
+
+print("Bin 1:")
+print(bin1)
+
+print("Bin 2:")
+print(bin2)
+
+print("Bin 3:")
+print(bin3)
+
+
+# ------------------------------------------------------------
+# (a) Smoothing by Bin Mean
+# ------------------------------------------------------------
+
+mean1 <- mean(bin1)
+mean2 <- mean(bin2)
+mean3 <- mean(bin3)
+
+smooth_mean <- c(
+  rep(mean1, 8),
+  rep(mean2, 8),
+  rep(mean3, 8)
+)
+
+print("Smoothing by Bin Mean:")
+print(smooth_mean)
+
+
+# ------------------------------------------------------------
+# (b) Smoothing by Bin Median
+# ------------------------------------------------------------
+
+median1 <- median(bin1)
+median2 <- median(bin2)
+median3 <- median(bin3)
+
+smooth_median <- c(
+  rep(median1, 8),
+  rep(median2, 8),
+  rep(median3, 8)
+)
+
+print("Smoothing by Bin Median:")
+print(smooth_median)
+
+
+# ------------------------------------------------------------
+# (c) Smoothing by Bin Boundaries
+# ------------------------------------------------------------
+
+# Bin 1 boundaries
+lower1 <- min(bin1)
+upper1 <- max(bin1)
+
+# Bin 2 boundaries
+lower2 <- min(bin2)
+upper2 <- max(bin2)
+
+# Bin 3 boundaries
+lower3 <- min(bin3)
+upper3 <- max(bin3)
+
+smooth_boundary1 <- ifelse(
+  abs(bin1 - lower1) <= abs(bin1 - upper1),
+  lower1,
+  upper1
+)
+
+smooth_boundary2 <- ifelse(
+  abs(bin2 - lower2) <= abs(bin2 - upper2),
+  lower2,
+  upper2
+)
+
+smooth_boundary3 <- ifelse(
+  abs(bin3 - lower3) <= abs(bin3 - upper3),
+  lower3,
+  upper3
+)
+
+smooth_boundary <- c(
+  smooth_boundary1,
+  smooth_boundary2,
+  smooth_boundary3
+)
+
+print("Smoothing by Bin Boundaries:")
+print(smooth_boundary)
