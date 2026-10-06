@@ -1,0 +1,54 @@
+
+# ============================================================
+# PROGRAM 6
+# NORMALIZATION OF AGE VALUE 35
+# ============================================================
+
+# Same 18 age values
+age <- c(23,25,31,28,35,40,29,32,27,
+         36,24,30,33,26,38,41,22,34)
+
+x <- 35
+
+
+# ------------------------------------------------------------
+# (i) MIN-MAX NORMALIZATION
+# ------------------------------------------------------------
+
+minimum <- min(age)
+maximum <- max(age)
+
+min_max_result <- (x - minimum) / (maximum - minimum)
+
+print("Min-Max Normalization of 35:")
+print(min_max_result)
+
+
+# ------------------------------------------------------------
+# (ii) Z-SCORE NORMALIZATION
+# Standard deviation given in question = 12.94
+# ------------------------------------------------------------
+
+mean_age <- mean(age)
+
+standard_deviation <- 12.94
+
+z_score_result <- (x - mean_age) / standard_deviation
+
+print("Z-Score Normalization of 35:")
+print(z_score_result)
+
+
+# ------------------------------------------------------------
+# (iii) DECIMAL SCALING NORMALIZATION
+# ------------------------------------------------------------
+
+maximum_age <- max(abs(age))
+
+j <- ceiling(log10(maximum_age + 1))
+
+decimal_scaling <- x / (10^j)
+
+print("Decimal Scaling Normalization of 35:")
+print(decimal_scaling)
+
