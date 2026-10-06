@@ -1,0 +1,70 @@
+# ============================================================
+# PROGRAM 9
+# EQUAL-FREQUENCY AND EQUAL-WIDTH PARTITIONING
+# WITH HISTOGRAM
+# ============================================================
+
+marks <- c(55,60,71,63,55,65,50,55,58,
+           59,61,63,65,67,71,72,75)
+
+# Sort the marks
+marks <- sort(marks)
+
+print("Sorted Marks:")
+print(marks)
+
+
+# ------------------------------------------------------------
+# (a) Equal-Frequency / Equal-Depth Partitioning
+# ------------------------------------------------------------
+
+bin1 <- marks[1:6]
+bin2 <- marks[7:12]
+bin3 <- marks[13:17]
+
+print("Equal Frequency - Bin 1:")
+print(bin1)
+
+print("Equal Frequency - Bin 2:")
+print(bin2)
+
+print("Equal Frequency - Bin 3:")
+print(bin3)
+
+
+# Histogram
+hist(marks,
+     breaks=3,
+     main="Histogram of Marks",
+     xlab="Marks")
+
+
+# ------------------------------------------------------------
+# (b) Equal-Width Partitioning
+# ------------------------------------------------------------
+
+minimum <- min(marks)
+maximum <- max(marks)
+
+range_value <- maximum - minimum
+
+width <- range_value / 3
+
+print("Minimum:")
+print(minimum)
+
+print("Maximum:")
+print(maximum)
+
+print("Range:")
+print(range_value)
+
+print("Equal Width:")
+print(width)
+
+
+# Histogram for Equal Width
+hist(marks,
+     breaks=3,
+     main="Equal Width Histogram",
+     xlab="Marks")
