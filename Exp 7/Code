@@ -1,0 +1,26 @@
+# ============================================================
+# PROGRAM 7
+# MEAN, MEDIAN AND MODE OF PENCILS
+# ============================================================
+
+pencils <- c(9,25,23,12,11,6,7,8,9,10)
+
+# Mean
+mean_pencils <- mean(pencils)
+
+print("Mean:")
+print(mean_pencils)
+
+# Median
+median_pencils <- median(pencils)
+
+print("Median:")
+print(median_pencils)
+
+# Mode
+frequency <- table(pencils)
+
+mode_pencils <- names(frequency)[frequency == max(frequency)]
+
+print("Mode:")
+print(mode_pencils)
