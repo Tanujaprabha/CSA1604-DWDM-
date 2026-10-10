@@ -1,1 +1,11 @@
 
+# ==========================================
+# QUESTION 8: MPG VS CYLINDER BOXPLOT
+# ==========================================
+
+boxplot(mpg ~ factor(cyl),
+        data = mtcars,
+        main = "MPG by Number of Cylinders",
+        xlab = "Number of Cylinders",
+        ylab = "Miles Per Gallon",
+        col = c("lightblue", "lightgreen", "orange"))
