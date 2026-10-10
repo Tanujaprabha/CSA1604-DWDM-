@@ -1,1 +1,34 @@
+# ==========================================
+# QUESTION 7: WATER DATA AND REGRESSION
+# ==========================================
+
+# Install the correct package
+install.packages("HSAUR")
+
+# Load the dataset
+library(HSAUR)
+data("water", package = "HSAUR")
+
+# View the data
+print(head(water))
+
+# Scatterplot
+plot(mortality ~ hardness, data = water,
+     main = "Water Hardness vs Mortality",
+     xlab = "Hardness",
+     ylab = "Mortality",
+     pch = 19,
+     col = "blue")
+
+# Linear regression model
+model <- lm(mortality ~ hardness, data = water)
+
+# Draw regression line
+abline(model, col = "red", lwd = 2)
+
+# Display regression results
+summary(model)
+
+# Predict mortality when hardness = 88
+predict(model, newdata = data.frame(hardness = 88))
 
