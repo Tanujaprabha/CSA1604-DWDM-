@@ -1,1 +1,51 @@
+# ==========================================
+# QUESTION 10: DIABETES DATASET
+# ==========================================
+
+# Select the downloaded diabetes.csv file
+diabetes <- read.csv(file.choose())
+
+# Check column names
+cat("\nQ10: Dataset Columns\n")
+print(names(diabetes))
+
+# Scatterplot: Blood Pressure vs Age
+plot(diabetes$Age,
+     diabetes$BloodPressure,
+     main = "Blood Pressure vs Age",
+     xlab = "Age",
+     ylab = "Blood Pressure",
+     pch = 19,
+     col = "blue")
+
+# Divide people into age groups
+diabetes$AgeGroup <- cut(
+  diabetes$Age,
+  breaks = c(0, 20, 30, 40, 50, Inf),
+  labels = c("Below 20", "21-30", "31-40",
+             "41-50", "Above 50"),
+  include.lowest = TRUE
+)
+
+# Calculate average blood pressure by age group
+bp <- aggregate(
+  BloodPressure ~ AgeGroup,
+  data = diabetes,
+  FUN = mean,
+  na.action = na.omit
+)
+
+cat("Average Blood Pressure by Age Group:\n")
+print(bp)
+
+# Bar chart
+barplot(bp$BloodPressure,
+        names.arg = bp$AgeGroup,
+        main = "Average Blood Pressure by Age Group",
+        xlab = "Age Group",
+        ylab = "Average Blood Pressure",
+        col = "lightgreen")
+
+
+
 
