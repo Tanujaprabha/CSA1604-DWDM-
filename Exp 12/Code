@@ -1,1 +1,21 @@
+# ==========================================
+# QUESTION 1: COVARIANCE AND CORRELATION
+# ==========================================
 
+A <- c(18, 2, 20)
+B <- c(22, 28, 10)
+C <- c(20, 40, 40)
+
+cat("\nQ1: Covariance between B and C\n")
+print(cov(B, C))
+
+data1 <- data.frame(A, B, C)
+
+cat("Covariance Matrix:\n")
+print(cov(data1))
+
+cat("Correlation between B and C:\n")
+print(cor(B, C))
+
+cat("Correlation Matrix:\n")
+print(cor(data1))
