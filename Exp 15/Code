@@ -1,1 +1,13 @@
+# ==========================================
+# QUESTION 4: NORMALIZATION
+# ==========================================
 
+x <- c(200, 300, 400, 600, 1000)
+
+cat("\nQ4: Min-Max Normalization\n")
+minmax <- (x - min(x)) / (max(x) - min(x))
+print(minmax)
+
+cat("Z-Score Normalization\n")
+zscore <- (x - mean(x)) / sd(x)
+print(zscore)
