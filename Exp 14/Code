@@ -1,1 +1,24 @@
+# ==========================================
+# QUESTION 3: MEAN, MEDIAN, RANGE AND BOXPLOT
+# ==========================================
+
+A_marks <- c(76,35,47,64,95,66,89,36,84)
+B_marks <- c(51,56,84,60,59,70,63,66,50)
+
+cat("\nQ3: Class A Mean, Median and Range\n")
+print(mean(A_marks))
+print(median(A_marks))
+print(diff(range(A_marks)))
+
+cat("Class B Mean, Median and Range\n")
+print(mean(B_marks))
+print(median(B_marks))
+print(diff(range(B_marks)))
+
+boxplot(A_marks, B_marks,
+        names = c("Class A", "Class B"),
+        main = "Comparison of Class Marks",
+        xlab = "Classes",
+        ylab = "Marks",
+        col = c("lightblue", "lightgreen"))
 
