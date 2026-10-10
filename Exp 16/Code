@@ -1,1 +1,14 @@
+# ==========================================
+# QUESTION 5: AIRPASSENGERS HISTOGRAM
+# ==========================================
 
+passengers <- as.numeric(AirPassengers)
+
+hist(passengers,
+     breaks = seq(100, 700, by = 150),
+     xlim = c(100, 700),
+     main = "AirPassengers Histogram",
+     xlab = "Number of Passengers",
+     ylab = "Frequency",
+     col = "lightblue",
+     right = FALSE)
