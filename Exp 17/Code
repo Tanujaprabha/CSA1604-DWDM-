@@ -1,1 +1,23 @@
+# ==========================================
+# QUESTION 6: MULTIPLE LINES USING mtcars
+# ==========================================
+
+mpg <- mtcars$mpg
+qsec <- mtcars$qsec
+
+plot(mpg,
+     type = "l",
+     col = "blue",
+     ylim = range(c(mpg, qsec)),
+     main = "MPG and QSEC Line Chart",
+     xlab = "Car Index",
+     ylab = "Values")
+
+lines(qsec, col = "red")
+
+legend("topright",
+       legend = c("MPG", "QSEC"),
+       col = c("blue", "red"),
+       lty = 1)
+
 
