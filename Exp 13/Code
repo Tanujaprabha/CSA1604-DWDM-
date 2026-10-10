@@ -1,1 +1,45 @@
+# ==========================================
+# QUESTION 2: BINNING AND DATA SMOOTHING
+# ==========================================
+
+x <- c(18,18,18,20,20,20,20,20,20,20,
+       21,21,21,21,25,25,25,25,25,28,
+       28,30,30,30)
+
+# Three equal-frequency bins, 8 values per bin
+bins <- split(x, ceiling(seq_along(x) / 8))
+
+cat("\nQ2: Original Bins\n")
+print(bins)
+
+# Smoothing using bin means
+cat("Smoothing using Bin Means:\n")
+bin_means <- lapply(bins, function(b) {
+  rep(mean(b), length(b))
+})
+print(bin_means)
+
+# Smoothing using bin boundaries
+cat("Smoothing using Bin Boundaries:\n")
+bin_boundaries <- lapply(bins, function(b) {
+  low <- min(b)
+  high <- max(b)
+  
+  sapply(b, function(v) {
+    if (abs(v - low) <= abs(v - high)) {
+      low
+    } else {
+      high
+    }
+  })
+})
+print(bin_boundaries)
+
+# Histogram
+hist(x,
+     main = "Equal-Frequency Data Histogram",
+     xlab = "Values",
+     ylab = "Frequency",
+     col = "lightblue",
+     breaks = seq(15, 35, by = 5))
 
